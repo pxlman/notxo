@@ -3,6 +3,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
@@ -10,9 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56cc5ff1-b10f-4a3f-8393-f60eed24a7e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/pyramic.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/XOgame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/XOgame.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/wordic.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/modules/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/pyramic.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/pyramic.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,19 +46,27 @@
     "C/C++ File.main.cpp.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/pxlman/Documents/OOP/XOgame/src",
+    "last_opened_file_path": "/home/pxlman/Documents/OOP/notxo/modules",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="XOgame" TARGET_NAME="main.cpp" CONFIG_NAME="main.cpp">
       <option name="sourceFile" value="modules/main.cpp" />
@@ -77,10 +90,16 @@
       <updated>1732945481286</updated>
       <workItem from="1732945482333" duration="40000" />
       <workItem from="1733379232680" duration="3137000" />
+      <workItem from="1733573651887" duration="2115000" />
+      <workItem from="1733599446423" duration="10691000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -22,62 +22,55 @@ public:
         this->rows = 3;
         this->columns = 5;
         this->board = new char*[this->rows];
-        for (int i = 0; i < this->rows; i++) {
-            this->board[i] = new char[this->columns];
-            for (int j = 0; j < this->columns; j++) {
-                this->board[i][j] = 0;
+        for (int y = 0; y < this->rows; ++y) {
+            this->board[y] = new char[this->columns];
+            for (int x = 0; x < this->columns; ++x) {
+                this->board[y][x] = 0;
             }
         }
         this->n_moves = 0;
     }
     bool update_board(int x, int y, T symbol){
         // Only update if move is valid
-        if ( validMove(x,y) && (this->board[x][y] == 0|| symbol == 0)) {
+        if ( validMove(x,y) && (this->board[y][x] != symbol)) {
             if (symbol == 0){
                 this->n_moves--;
-                this->board[x][y] = 0;
+                this->board[y][x] = 0;
             }
             else {
                 this->n_moves++;
-                this->board[x][y] = toupper(symbol);
+                this->board[y][x] = toupper(symbol);
             }
             return true;
         }
-        return false;
+        else return false;
     }
     void display_board(){
-        for (int i = 0; i < this->rows; i++) {
-            cout << "\n| ";
-            for (int j = 0; j < 2-i; ++j) {
-                cout << "(" << i << "," << j << ")";
-                cout << setw(2) << ' ' << " |";
+        for (int y = 0; y < this->rows; y++) {
+            cout << "\n";
+            for (int x = 0; x < 2-y; x++) {
+                cout << "  " << ' ' << " " << ' ' << " ";
+                cout << setw(2) << ' ' << "  ";
             }
-            for (int j = 2 - i; j < 2 + i; j++) {
-                cout << "(" << i << "," << j << ")";
-                cout << setw(2) << this->board[i][j] << " |";
+            for (int x = 2-y; x <= 2+y; x++) {
+                cout << " (" << x << "," << y << ")";
+                cout << setw(2) << this->board[y][x] << " |";
             }
-            for (int j = 2 + i; j < this->columns; ++j) {
-                cout << "(" << i << "," << j << ")";
-                cout << setw(2) << ' ' << " |";
-            }
-            cout << "\n-----------------------------";
         }
+        cout << "\n\\---------------------------------------------/";
         cout << endl;
     }
     bool is_win(){
-        // Check rows and columns
-        for (int i = 0; i < this->rows; i++) {
-            if ((this->board[i][0] == this->board[i][1] && this->board[i][1] == this->board[i][2] && this->board[i][0] != 0) ||
-                (this->board[0][i] == this->board[1][i] && this->board[1][i] == this->board[2][i] && this->board[0][i] != 0)) {
-                return true;
-            }
-        }
-
+        // Check middle col
+        if(this->board[0][2] == this->board[1][2] && this->board[2][2] == this->board[1][2] && this->board[1][2] != 0) return true;
+        // Check rows
+        if(this->board[1][2] == this->board[1][1] && this->board[1][1] == this->board[1][3] && this->board[1][3] != 0) return true;
+        if(this->board[2][2] == this->board[2][1] && this->board[2][1] == this->board[2][3] && this->board[2][3] != 0) return true;
+        if(this->board[2][0] == this->board[2][1] && this->board[2][1] == this->board[2][2] && this->board[2][2] != 0) return true;
+        if(this->board[2][4] == this->board[2][3] && this->board[2][3] == this->board[2][2] && this->board[2][2] != 0) return true;
         // Check diagonals
-        if ((this->board[0][0] == this->board[1][1] && this->board[1][1] == this->board[2][2] && this->board[0][0] != 0) ||
-            (this->board[0][2] == this->board[1][1] && this->board[1][1] == this->board[2][0] && this->board[0][2] != 0)) {
-            return true;
-        }
+        if(this->board[0][2] == this->board[1][3] && this->board[1][3] == this->board[2][4] && this->board[2][4] != 0) return true;
+        if(this->board[0][2] == this->board[1][1] && this->board[1][1] == this->board[2][0] && this->board[2][0] != 0) return true;
 
         return false;
     }

@@ -2,6 +2,7 @@
 #include "BoardGame_Classes.h"
 #include "3x3X_O.h"
 #include "pyramic.h"
+#include "wordic.h"
 
 
 using namespace std;
@@ -9,7 +10,7 @@ using namespace std;
 int main() {
     int choice;
     Player<char>* players[2];
-    PyramicBoard<char>* B = new PyramicBoard<char>();
+    Wordic_Board<char>* B = new Wordic_Board<char>();
     string playerXName, player2Name;
 
     cout << "Welcome to FCAI X-O Game. :)\n";
@@ -24,7 +25,7 @@ int main() {
 
     switch(choice) {
         case 1:
-            players[0] = new X_O_Player<char>(playerXName, 'X');
+            players[0] = new Wordic_Player<char>(playerXName, 'X');
             break;
         case 2:
             players[0] = new X_O_Random_Player<char>('X');
@@ -44,7 +45,7 @@ int main() {
 
     switch(choice) {
         case 1:
-            players[1] = new X_O_Player<char>(player2Name, 'O');
+            players[1] = new Wordic_Player<char>(player2Name, 'O');
             break;
         case 2:
             players[1] = new X_O_Random_Player<char>('O');
