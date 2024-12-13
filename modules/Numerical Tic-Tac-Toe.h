@@ -2,8 +2,6 @@
 #define UNTITLED2_NUMERICAL_TIC_TAC_TOE_H
 #include "BoardGame_Classes.h"
 #include <unordered_set>
-#include <vector>
-#include <numeric>
 
 template <typename T>
 class Numerical_Board : public Board<T> {
@@ -39,9 +37,6 @@ public:
 
 #include <iostream>
 #include <iomanip>
-#include <ctime>
-#include <cstdlib>
-
 using namespace std;
 
 // Constructor for Numerical_Board
