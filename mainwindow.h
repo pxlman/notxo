@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "newgameform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -15,9 +16,19 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void getData();
     ~MainWindow();
+
+private slots:
+    void on_newGame_clicked();
 
 private:
     Ui::MainWindow *ui;
+    NewGameForm *newgameform;
+    int players_count;
+    QString game_mode;
+    QString player1;
+    QString player2;
+
 };
 #endif // MAINWINDOW_H

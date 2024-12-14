@@ -10,15 +10,21 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    newgameform.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    newgameform.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    newgameform.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc
