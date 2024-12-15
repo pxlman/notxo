@@ -72,10 +72,10 @@ public:
 		for (int i = 0; i < 9; i++) {
 			v[i] = vector<char>(9);
 			for (int j = 0; j < 9; j++) {
-				int boardx = x / 3;
-				int boardy = y / 3;
-				int subx = x % 3;
-				int suby = y % 3;
+                int boardx = x / 3;
+                int boardy = y / 3;
+                int subx = x % 3;
+                int suby = y % 3;
 
 				v[i][j] = boards[boardx][boardy].getValAt(subx, suby);
 			}
@@ -102,7 +102,6 @@ public:
 	Big_Player(char symbol) : Player<char>(symbol) {};
 	//void setBoard(ToeTacTic_Board* board) { Player<char>::setBoard/*(board);*/ };
 	void getmove(int& x, int& y) override;
-
 };
 
 
@@ -113,3 +112,4 @@ public:
 	void getmove(int& x, int& y) override;
 
 };
+

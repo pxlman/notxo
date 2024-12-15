@@ -50,4 +50,3 @@ public:
 	}
 	//friend void setBoard(Sus_Board* b, ToeTacTic_AiPlayer* ai) { ai->setBoard(b->board, 3, 3); };
 };
-

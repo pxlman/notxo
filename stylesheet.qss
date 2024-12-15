@@ -33,3 +33,8 @@ QTableWidget {
         gridline-color: #4C566A;
         color: #e0def4;
 }
+
+QTableWidget::item:selected {
+        background-color: #3B4252;
+        color: #e0def4;
+}
