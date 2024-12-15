@@ -72,10 +72,10 @@ public:
 		for (int i = 0; i < 9; i++) {
 			v[i] = vector<char>(9);
 			for (int j = 0; j < 9; j++) {
-                int boardx = x / 3;
-                int boardy = y / 3;
-                int subx = x % 3;
-                int suby = y % 3;
+		                int boardx = i / 3;
+		                int boardy = j / 3;
+		                int subx = i % 3;
+		                int suby = j % 3;
 
 				v[i][j] = boards[boardx][boardy].getValAt(subx, suby);
 			}
