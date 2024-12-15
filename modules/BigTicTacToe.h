@@ -64,6 +64,36 @@ public:
 	bool is_win() override { return win; };
 	bool is_draw() override { return draw; };
 	bool game_is_over() override { return is_win() || is_draw(); }
+	
+	// returns a 9x9 vector of all the boards
+	vector<vector<char>> getWholeBoard() {
+		vector<vector<char>> v(9);
+
+		for (int i = 0; i < 9; i++) {
+			v[i] = vector<char>(9);
+			for (int j = 0; j < 9; j++) {
+				int boardx = x / 3;
+				int boardy = y / 3;
+				int subx = x % 3;
+				int suby = y % 3;
+
+				v[i][j] = boards[boardx][boardy].getValAt(subx, suby);
+			}
+		}
+		return v;
+	}
+
+	// returns a 3x3 board of the final results of the big board
+	vector<vector<char>> getBigBoard() {
+		vector<vector<char>> v(3);
+		for (int i = 0; i < 3; i++) {
+			v[i] = vector<char>(3);
+			for (int j = 0; j < 3; j++) {
+				v[i][j] = boards[i][j].getValue();
+			}
+		}
+		return v;
+	}
 };
 
 class Big_Player : public Player<char> {
