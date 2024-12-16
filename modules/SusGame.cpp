@@ -1,4 +1,4 @@
-#include "SusGame.h"
+/*#include "SusGame.h"
 #include "ToeTacTic.h"
 
 
@@ -131,3 +131,4 @@ bool Sus_Board::update_board(int x, int y, char symbol) {
 	}
 	return true;
 }
+*/
