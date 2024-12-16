@@ -153,6 +153,18 @@ public:
 		return (c0 + c1 + 1) >= 3;
 	};
 	void setPlayers(Sus_Player<T>** players) { this->players = players; }
+
+	vector<vector<T>> getBoard() {
+		vector<vector<T>> v(3);
+		for (int i = 0; i < 3; i++) {
+			v[i] = vector<T>(3);
+			for (int j = 0; j < 3; j++) {
+				v[i][j] = board[i][j];
+			}
+		}
+
+		return v;
+	}
 	//friend void setBoard(Sus_Board* b, ToeTacTic_AiPlayer* ai) { ai->setBoard(b->board, 3, 3); };
 };
 
