@@ -1,4 +1,4 @@
-#include "BigTicTacToe.h"
+/*#include "BigTicTacToe.h"
 
 
 BigBoard::BigBoard() {
@@ -182,3 +182,4 @@ void Big_RandomPlayer::getmove(int& x, int& y) {
 	x = rand() % 9;
 	y = rand() % 9;
 }
+*/
