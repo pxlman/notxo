@@ -65,8 +65,8 @@ public:
         return winnerSymbol;
     }
     bool is_win() override {
-        if(winnerSymbol == 'S') return true;
-        else return false;
+        if(winnerSymbol == 'S') return false;
+        else return true;
     }
     bool is_draw() override {
         if(winnerSymbol == 'D') return true;
@@ -74,7 +74,7 @@ public:
     }
 	bool game_is_over() override { return isover; }
 	bool update_board(int x, int y, T symbol) override {
-		if (isover) return true;
+        if (isover) return false;
 		if (this->board[x][y] != '-') {
 			return false;
 		}

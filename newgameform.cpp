@@ -17,6 +17,8 @@ NewGameForm::~NewGameForm()
     delete ui;
 }
 
+
+// Accepted form taking the data to the object
 void NewGameForm::on_buttonBox_accepted()
 {
     this->player1_name = ui->player1_name->text();
@@ -27,6 +29,7 @@ void NewGameForm::on_buttonBox_accepted()
 
 
 
+// If he choosed to switch the number of players
 void NewGameForm::on_players_count_currentIndexChanged(int index)
 {
     if(index == 1){
@@ -37,7 +40,7 @@ void NewGameForm::on_players_count_currentIndexChanged(int index)
         ui->player2_name->setEnabled(false);
     }
 }
-
+// some getters
 QString NewGameForm::getPlayer1Name(){
     return this->player1_name;
 }
@@ -53,6 +56,7 @@ int NewGameForm::getPlayersCount(){
     return this->players_count;
 }
 
+// when he cancel creating the game
 void NewGameForm::on_buttonBox_rejected()
 {
     delete ui;

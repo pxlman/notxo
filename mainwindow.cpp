@@ -68,11 +68,11 @@ void MainWindow::initializeBoard(){
         else
             players[1] = new Big_RandomPlayer<char>("Computer", 'O');
     }
-    ui->playagain->setHidden(true);
-    ui->winner_label->setText("");
+    ui->playagain->setHidden(true); // Hide the play again button
+    ui->winner_label->setText(""); // Empty the winner label
 }
 
-// Get data from the form
+// Get data from the dialog
 void MainWindow::getData(){
     this->players_count = newgameform->getPlayersCount();
     this->player1_name = newgameform->getPlayer1Name();
@@ -80,55 +80,58 @@ void MainWindow::getData(){
     this->game_mode = newgameform->getGameMode();
 }
 
+// When creating a new game
 void MainWindow::on_newGame_clicked()
 {
-    turn = 0;
+    turn = 0; // Set the turn for player 1
     if(newgameform->exec() == QDialog::Accepted){
-        getData();
-        initializeBoard();
+        getData(); // get the game specifications from the user
+        initializeBoard(); // initialize a clear suitable board to his specifications
     }
 }
 
+// Set a move position using a symbol
 bool MainWindow::play(int row, int column, char symbol){
-    if(board->update_board(column, row, symbol)){
+    if(board->update_board(column, row, symbol)){ // valid play
         auto *item = new QTableWidgetItem(QString(symbol));
-        item->setTextAlignment(Qt::AlignCenter);
+        item->setTextAlignment(Qt::AlignCenter); // centering the symbol
         ui->board->setItem(row,column,item);
         return true;
-    } else {
+    } else { // invalid play
         return false;
     }
 }
 
+// When playing a turn
 void MainWindow::on_board_cellClicked(int row, int column)
 {
+    // Check if the play is valid and if so he play it
     if(!play(row, column, players[turn]->getsymbol())) return;
-    turn = !turn;
-    if(!board->game_is_over()){
-        if(players_count == 1){
-            int x,y;
-            do {
-                players[turn]->getmove(x,y);
-            }while (!play(y, x, players[turn]->getsymbol()));
-            turn = !turn;
-        }
+    turn = !turn; // switch the turn for the other player
+    if(!board->game_is_over() && players_count == 1){ // if the game didn't end the the second player was the computer
+        int x,y;
+        do {
+            players[turn]->getmove(x,y); // randomizing a move
+        }while (!play(y, x, players[turn]->getsymbol())); // is it's not valid it try again
+        turn = !turn; // switching the turn again for the human playing
     }
-    if(board->game_is_over()){
+    if(board->game_is_over()){ // if game is over show out the winner
         if(board->is_draw()){
             ui->winner_label->setText("<html><head/><body><p><span style=' color:#cccccc;'> Draw</span></p></body></html>");
         } else if(board->is_win()) {
-            ui->winner_label->setText("<html><head/><body><p><span style=' color:#2ec27e;'>"+ QString::fromStdString(players[turn]->getname()) +" WINS</span></p></body></html>");
+            ui->winner_label->setText("<html><head/><body><p><span style=' color:#2ec27e;'>"+ QString::fromStdString(players[1]->getname()) +" WINS</span></p></body></html>");
         } else {
-            ui->winner_label->setText("<html><head/><body><p><span style=' color:#2ec27e;'>"+ QString::fromStdString(players[!turn]->getname()) +" WINS</span></p></body></html>");
+            ui->winner_label->setText("<html><head/><body><p><span style=' color:#2ec27e;'>"+ QString::fromStdString(players[0]->getname()) +" WINS</span></p></body></html>");
         }
         ui->playagain->setHidden(false);
     }
 }
 
 
+// When play again button is pressed
 void MainWindow::on_playagain_clicked()
 {
-    initializeBoard();
-    turn = 0;
+    initializeBoard(); // initialize a clear board depending on the game mode
+    turn = 0; // The turn is for player 1
 }
 
