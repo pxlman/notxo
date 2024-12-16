@@ -25,6 +25,8 @@ private slots:
 
     void on_board_cellClicked(int row, int column);
 
+    void on_playagain_clicked();
+
 private:
     Ui::MainWindow *ui;
     NewGameForm *newgameform;
@@ -36,5 +38,7 @@ private:
     Board<char>* board;
     bool turn = 0;
     void refreshBoard(int size = 3);
+    void initializeBoard();
+    bool play(int row, int column, char symbol);
 };
 #endif // MAINWINDOW_H

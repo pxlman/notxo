@@ -19,7 +19,6 @@ public:
     QString getPlayer1Name();
     QString getPlayer2Name();
 
-
 private slots:
     void on_buttonBox_accepted();
 

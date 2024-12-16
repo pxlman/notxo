@@ -8,7 +8,7 @@ NewGameForm::NewGameForm(QWidget *parent)
     ui->setupUi(this);
     player1_name = "";
     player2_name = "";
-    game_mode = "SUS";
+    game_mode = "";
     players_count = 1;
 }
 

@@ -89,7 +89,7 @@ class Big_Player : public Player<T> {
 	T symbol;
 public:
 	Big_Player(string name, T symbol) : Player<T>(name, symbol) {};
-	Big_Player(char T) : Player<T>(symbol) {};
+    //Big_Player(char T) : Player<T>(symbol) {};
 	//void setBoard(ToeTacTic_Board* board) { Player<char>::setBoard/*(board);*/ };
 	void getmove(int& x, int& y) override;
 
@@ -137,6 +137,7 @@ BigBoard<T>::~BigBoard() {
 
 template <typename T>
 bool BigBoard<T>::update_board(int x, int y, T symb) {
+    if(game_is_over()) return false;
 	int boardx = x / 3;
 	int boardy = y / 3;
 	int subx = x % 3;
@@ -153,7 +154,6 @@ bool BigBoard<T>::update_board(int x, int y, T symb) {
 		return false;
 	}
 
-	int counter = 0;
 	board[boardx][boardy] = boards[boardx][boardy].getValue();
 	win = false;
 	win = win || countmo(board, boardx, boardy, 1, -1, symb);

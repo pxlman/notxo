@@ -44,13 +44,16 @@ public:
 template <typename T>
 class Sus_Board : public Board<T> {
 
-	int scores[2];
+    int scores[2];
 	bool isover = false;
 	int n_moves = 0;
 	T** board;
+    char winnerSymbol;
 public:
 	Sus_Board() {
-		this->board = new char* [3];
+        scores[0] = 0;
+        scores[1] = 0;
+        this->board = new char* [3];
 		for (int x = 0; x < 3; x++) {
 			this->board[x] = new char[3];
 			for (int y = 0; y < 3; y++) {
@@ -58,9 +61,17 @@ public:
 			}
 		}
 	};
-
-	bool is_win() override {return false;}
-	bool is_draw() override { return n_moves == 9; }
+    char winner(){
+        return winnerSymbol;
+    }
+    bool is_win() override {
+        if(winnerSymbol == 'S') return true;
+        else return false;
+    }
+    bool is_draw() override {
+        if(winnerSymbol == 'D') return true;
+        return false;
+    }
 	bool game_is_over() override { return isover; }
 	bool update_board(int x, int y, T symbol) override {
 		if (isover) return true;
@@ -99,12 +110,16 @@ public:
 			cout << "Player 2: " << scores[1] << endl;
 			if (scores[0] == scores[1]) {
 				cout << "Draw!\n";
+                winnerSymbol = 'D';
+
 			}
-			else if (scores[0] > scores[1]) {
+            else if (scores[0] > scores[1]) { // S
 				cout << "Player 1 Wins!\n";
+                winnerSymbol = 'S';
 			}
-			else {
+            else { // U
 				cout << "Player 2 Wins!\n";
+                winnerSymbol = 'U';
 			}
 			isover = true;
 		}
