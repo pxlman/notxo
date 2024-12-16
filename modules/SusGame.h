@@ -10,7 +10,7 @@ public:
 	Sus_Player(T symbol) : Player<T>(symbol) {};
 	//void setBoard(ToeTacTic_Board* board) { Player<char>::setBoard/*(board);*/ };
 	void getmove(int& x, int& y) override {
-		if (moves >= 9) return;
+		//if (moves >= 9) return;
 		cout << "Row: ";
 		cin >> x;
 		cout << "Column: ";
@@ -46,7 +46,6 @@ class Sus_Board : public Board<T> {
 
 	int scores[2];
 	bool isover = false;
-	Sus_Player<T>** players;
 	int n_moves = 0;
 	T** board;
 public:
@@ -61,7 +60,7 @@ public:
 	};
 
 	bool is_win() override {return false;}
-	bool is_draw() override { return false; }
+	bool is_draw() override { return n_moves == 9; }
 	bool game_is_over() override { return isover; }
 	bool update_board(int x, int y, T symbol) override {
 		if (isover) return true;
@@ -71,8 +70,6 @@ public:
 
 		this->n_moves++;
 		this->board[x][y] = symbol;
-		players[0]->moves++;
-		players[1]->moves++;
 		int score = 0;
 		score += countmo(x, y, 1, -1, symbol); // diagonal
 		score += countmo(x, y, 1, 0, symbol); // hor
