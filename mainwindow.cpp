@@ -119,9 +119,9 @@ void MainWindow::on_board_cellClicked(int row, int column)
         if(board->is_draw()){
             ui->winner_label->setText("<html><head/><body><p><span style=' color:#cccccc;'> Draw</span></p></body></html>");
         } else if(board->is_win()) {
-            ui->winner_label->setText("<html><head/><body><p><span style=' color:#2ec27e;'>"+ QString::fromStdString(players[1]->getname()) +" WINS</span></p></body></html>");
+            ui->winner_label->setText("<html><head/><body><p><span style=' color:#2ec27e;'>"+ QString::fromStdString(players[turn]->getname()) +" WINS</span></p></body></html>");
         } else {
-            ui->winner_label->setText("<html><head/><body><p><span style=' color:#2ec27e;'>"+ QString::fromStdString(players[0]->getname()) +" WINS</span></p></body></html>");
+            ui->winner_label->setText("<html><head/><body><p><span style=' color:#2ec27e;'>"+ QString::fromStdString(players[!turn]->getname()) +" WINS</span></p></body></html>");
         }
         ui->playagain->setHidden(false);
     }

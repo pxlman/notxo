@@ -30,7 +30,7 @@ QWidget {
 }
 QTableWidget {
         background-color: #3B4252;
-        gridline-color: #4C566A;
+        gridline-color: #999999;
         color: #e0def4;
 }
 
